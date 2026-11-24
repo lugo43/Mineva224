@@ -1,0 +1,357 @@
+
+@charset "UTF-8";
+
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    padding: 30px 15px;
+
+    color: #2c0820;
+
+    background: linear-gradient(
+        -45deg,
+        #910289,
+        #02973b,
+        #D7C4CB,
+        #65a104
+    );
+
+    background-size: 400% 400%;
+    animation: fondo 15s ease infinite;
+
+    cursor: url("cursor-morado.png"), auto;
+}
+
+/* =========================
+   TÍTULO PRINCIPAL
+========================= */
+
+h1 {
+    text-align: center;
+    font-size: 42px;
+    margin: 10px auto 30px;
+    color: #2c0820;
+
+    text-shadow: 2px 2px 5px rgba(255,255,255,0.5);
+
+    animation: aparecerArriba 1s ease-out;
+
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+h1:hover {
+    color: #6B3FA0;
+    transform: scale(1.05);
+}
+
+/* =========================
+   PÁRRAFOS
+========================= */
+
+p {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+
+    background: rgba(255,255,255,0.45);
+    border-radius: 18px;
+
+    line-height: 1.7;
+    font-size: 16px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+
+    animation: aparecer 1.2s ease-out;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+p:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.65);
+
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+strong {
+    color: #910289;
+}
+
+/* =========================
+   CONTENEDOR
+========================= */
+
+body > div {
+    max-width: 900px;
+    margin: 35px auto;
+    padding: 30px;
+
+    background: rgba(255,255,255,0.25);
+
+    backdrop-filter: blur(8px);
+
+    border-radius: 25px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+
+    animation: aparecerAbajo 1s ease-out;
+}
+
+/* =========================
+   LISTA
+========================= */
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 25px auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+li {
+    background: rgba(40,25,45,0.9);
+
+    border: 2px solid #8e6aa8;
+    border-radius: 18px;
+
+    padding: 25px 15px;
+
+    text-align: center;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+
+    animation: aparecer 1.2s ease-out;
+}
+
+li:hover {
+    transform: translateY(-8px) scale(1.03);
+
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+
+    border-color: #b98bd4;
+}
+
+/* =========================
+   ENLACES
+========================= */
+
+a {
+    display: inline-block;
+
+    color: #910289;
+    font-size: 20px;
+    font-weight: bold;
+
+    text-decoration: none;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+a:hover {
+    color: #6B3FA0;
+    transform: scale(1.08);
+}
+
+a:focus-visible {
+    outline: 3px solid #910289;
+    outline-offset: 5px;
+    border-radius: 4px;
+}
+
+/* =========================
+   SEPARADOR
+========================= */
+
+hr {
+    max-width: 900px;
+    margin: 40px auto;
+
+    border: none;
+    height: 2px;
+
+    background: rgba(255,255,255,0.6);
+}
+
+/* =========================
+   IMÁGENES
+========================= */
+
+img {
+    display: block;
+
+    width: 100%;
+    max-width: 600px;
+
+    height: auto;
+
+    margin: 30px auto;
+
+    border-radius: 20px;
+
+    border: 3px solid #8e6aa8;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+img:hover {
+    transform: scale(1.03);
+
+    box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    ul {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px 10px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    p {
+        padding: 15px;
+        font-size: 15px;
+    }
+
+    body > div {
+        padding: 20px 15px;
+        border-radius: 18px;
+    }
+
+    ul {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    li {
+        padding: 20px;
+    }
+
+    img {
+        max-width: 100%;
+    }
+}
+
+/* =========================
+   FONDO ANIMADO
+========================= */
+
+@keyframes fondo {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes aparecerArriba {
+
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes aparecerAbajo {
+
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* =========================
+   ACCESIBILIDAD
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+
+        scroll-behavior: auto !important;
+    }
+}
